@@ -1,19 +1,6 @@
 <?php
-/**
- * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
- * @link          https://cakephp.org CakePHP(tm) Project
- * @since         0.10.0
- * @license       https://opensource.org/licenses/mit-license.php MIT License
- */
 
-$cakeDescription = 'CakePHP: the rapid development php framework';
+$cakeDescription = 'Plugin de Autenticação - Desenvolvido por Felipe Panegalli';
 ?>
 <!DOCTYPE html>
 <html>
@@ -42,11 +29,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </ul>
         <div class="top-bar-section">
             <ul class="right">
-                <li><a target="_blank" href="https://book.cakephp.org/3.0/">Documentation</a></li>
-                <li><a target="_blank" href="https://api.cakephp.org/3.0/">API</a></li>
-                <li><a href="<?= $this->Url->build(['controller' => 'users', 'action' => 'logout']) ?>">Logout</a></li>
+                <li><a href="<?= $this->Url->build(['controller' => 'users', 'action' => 'logout']) ?>"><?= __('Logout') ?></a></li>
             </ul>
             <ul class="menu">
+                <li><a href="#"><?= __('IDIOMAS >>') ?></a></li>
                 <li><a href="<?= $this->Url->build(['controller' => 'locales', 'action' => 'changeLanguage', 'pt_BR']) ?>">BR</a></li>
                 <li><a href="<?= $this->Url->build(['controller' => 'locales', 'action' => 'changeLanguage', 'en_US']) ?>">EN</a></li>
                 <li><a href="<?= $this->Url->build(['controller' => 'locales', 'action' => 'changeLanguage', 'es']) ?>">ES</a></li>

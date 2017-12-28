@@ -95,3 +95,9 @@ public function isAuthorized($user)
    //Aqui vai alguma validação caso necessário...
 }
 ```
+Caso queira adicionar uma rota de acesso, basta adicionar em ``config/routes.php`` antes do fallback a seguinte linha:
+```
+$routes->connect('/login', ['plugin' => 'authenticator','controller' => 'users', 'action' => 'login']);
+```
+Ai só acessar site:port/login ou localhost:8765/login 
+Qualquer dúvida pode ser enviado na aba de contato no site acima.
