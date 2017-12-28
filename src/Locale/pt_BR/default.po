@@ -1,0 +1,373 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2017-12-28 12:32+0000\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: Controller/RolesController.php:55;79
+msgid "The role has been saved."
+msgstr "Regra salvo(a)"
+
+#: Controller/RolesController.php:59;83
+msgid "The role could not be saved. Please, try again."
+msgstr "A regra não pôde ser salvo(a). Tente novamente."
+
+#: Controller/RolesController.php:100
+msgid "The role has been deleted."
+msgstr "A regra foi deletado(a)."
+
+#: Controller/RolesController.php:102
+msgid "The role could not be deleted. Please, try again."
+msgstr "A regra não pôde ser excluido(a). Tente novamente."
+
+#: Controller/UsersController.php:47
+msgid "Username or password is invalid, try again!"
+msgstr "Usuário ou senha inválida, tente novamente."
+
+#: Controller/UsersController.php:53
+msgid "You are now logged out."
+msgstr "Você foi deslogado com sucesso."
+
+#: Controller/UsersController.php:99;125
+msgid "The user has been saved."
+msgstr "Usuário salvo(a)"
+
+#: Controller/UsersController.php:103;129
+msgid "The user could not be saved. Please, try again."
+msgstr "O usuário não pôde ser salvo(a). Tente novamente."
+
+#: Controller/UsersController.php:148
+msgid "The user has been deleted."
+msgstr "O usuário foi deletado(a)."
+
+#: Controller/UsersController.php:150
+msgid "The user could not be deleted. Please, try again."
+msgstr "O usuário não pôde ser excluido(a). Tente novamente."
+
+#: Template/Layout/error.ctp:35
+msgid "Error"
+msgstr "Erro"
+
+#: Template/Layout/error.ctp:43
+msgid "Back"
+msgstr "Voltar"
+
+#: Template/Locales/add.ctp:9
+#: Template/Locales/edit.ctp:9
+#: Template/Locales/index.ctp:9;25
+#: Template/Locales/view.ctp:9;57
+#: Template/Roles/add.ctp:9
+#: Template/Roles/edit.ctp:9
+#: Template/Roles/index.ctp:9;25
+#: Template/Roles/view.ctp:9;57
+#: Template/Users/add.ctp:9
+#: Template/Users/edit.ctp:9
+#: Template/Users/index.ctp:9;32
+#: Template/Users/view.ctp:9
+msgid "Actions"
+msgstr "Ações"
+
+#: Template/Locales/add.ctp:10
+#: Template/Locales/edit.ctp:16
+#: Template/Locales/view.ctp:12
+#: Template/Users/add.ctp:11
+#: Template/Users/edit.ctp:17
+#: Template/Users/index.ctp:11
+#: Template/Users/view.ctp:14
+msgid "List Locales"
+msgstr "Listar Idiomas"
+
+#: Template/Locales/add.ctp:11
+#: Template/Locales/edit.ctp:17
+#: Template/Locales/index.ctp:11
+#: Template/Locales/view.ctp:14
+#: Template/Roles/add.ctp:11
+#: Template/Roles/edit.ctp:17
+#: Template/Roles/index.ctp:11
+#: Template/Roles/view.ctp:14
+#: Template/Users/add.ctp:10
+#: Template/Users/edit.ctp:16
+#: Template/Users/view.ctp:12
+msgid "List Users"
+msgstr "Listar Usuários"
+
+#: Template/Locales/add.ctp:12
+#: Template/Locales/edit.ctp:18
+#: Template/Locales/index.ctp:12
+#: Template/Locales/view.ctp:15
+#: Template/Roles/add.ctp:12
+#: Template/Roles/edit.ctp:18
+#: Template/Roles/index.ctp:12
+#: Template/Roles/view.ctp:15
+#: Template/Users/index.ctp:10
+#: Template/Users/view.ctp:13
+msgid "New User"
+msgstr "Novo Usuário"
+
+#: Template/Locales/add.ctp:18
+msgid "Add Locale"
+msgstr "Adicionar novo Idioma"
+
+#: Template/Locales/add.ctp:24
+#: Template/Locales/edit.ctp:30
+#: Template/Roles/add.ctp:24
+#: Template/Roles/edit.ctp:30
+#: Template/Users/add.ctp:31
+#: Template/Users/edit.ctp:37
+msgid "Submit"
+msgstr "Salvar"
+
+#: Template/Locales/edit.ctp:11
+#: Template/Locales/index.ctp:39
+#: Template/Locales/view.ctp:74
+#: Template/Roles/edit.ctp:11
+#: Template/Roles/index.ctp:39
+#: Template/Roles/view.ctp:74
+#: Template/Users/edit.ctp:11
+#: Template/Users/index.ctp:51
+msgid "Delete"
+msgstr "Excluir"
+
+#: Template/Locales/edit.ctp:13
+#: Template/Locales/index.ctp:39
+#: Template/Locales/view.ctp:11;74
+#: Template/Roles/edit.ctp:13
+#: Template/Roles/index.ctp:39
+#: Template/Roles/view.ctp:11;74
+#: Template/Users/edit.ctp:13
+#: Template/Users/index.ctp:51
+#: Template/Users/view.ctp:11
+msgid "Are you sure you want to delete # {0}?"
+msgstr "Deseja excluir o registro # {0}?"
+
+#: Template/Locales/edit.ctp:24
+#: Template/Locales/view.ctp:10
+msgid "Edit Locale"
+msgstr "Editar Idioma"
+
+#: Template/Locales/index.ctp:10
+#: Template/Locales/view.ctp:13
+#: Template/Users/add.ctp:12
+#: Template/Users/edit.ctp:18
+#: Template/Users/index.ctp:12
+#: Template/Users/view.ctp:15
+msgid "New Locale"
+msgstr "Novo Idioma"
+
+#: Template/Locales/index.ctp:16
+msgid "Locales"
+msgstr "Idiomas"
+
+#: Template/Locales/index.ctp:37
+#: Template/Locales/view.ctp:72
+#: Template/Roles/index.ctp:37
+#: Template/Roles/view.ctp:72
+#: Template/Users/index.ctp:49
+msgid "View"
+msgstr "Visualizar"
+
+#: Template/Locales/index.ctp:38
+#: Template/Locales/view.ctp:73
+#: Template/Roles/index.ctp:38
+#: Template/Roles/view.ctp:73
+#: Template/Users/index.ctp:50
+msgid "Edit"
+msgstr "Editar"
+
+#: Template/Locales/index.ctp:47
+#: Template/Roles/index.ctp:47
+#: Template/Users/index.ctp:59
+msgid "first"
+msgstr "primeiro"
+
+#: Template/Locales/index.ctp:48
+#: Template/Roles/index.ctp:48
+#: Template/Users/index.ctp:60
+msgid "previous"
+msgstr "anterior"
+
+#: Template/Locales/index.ctp:50
+#: Template/Roles/index.ctp:50
+#: Template/Users/index.ctp:62
+msgid "next"
+msgstr "próximo"
+
+#: Template/Locales/index.ctp:51
+#: Template/Roles/index.ctp:51
+#: Template/Users/index.ctp:63
+msgid "last"
+msgstr "último"
+
+#: Template/Locales/index.ctp:53
+#: Template/Roles/index.ctp:53
+#: Template/Users/index.ctp:65
+msgid "Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total"
+msgstr "Página {{page}} de {{pages}}, mostrando {{current}} registros de{{count}}"
+
+#: Template/Locales/view.ctp:11
+msgid "Delete Locale"
+msgstr "Excluir Idioma"
+
+#: Template/Locales/view.ctp:22
+#: Template/Roles/view.ctp:22
+msgid "Title"
+msgstr "Título"
+
+#: Template/Locales/view.ctp:26
+#: Template/Roles/view.ctp:26
+msgid "Description"
+msgstr "Descrição"
+
+#: Template/Locales/view.ctp:30;47
+#: Template/Roles/view.ctp:30;47
+#: Template/Users/view.ctp:48
+msgid "Id"
+msgstr "#"
+
+#: Template/Locales/view.ctp:34;55
+#: Template/Roles/view.ctp:34;55
+#: Template/Users/view.ctp:52
+msgid "Created"
+msgstr "Criado"
+
+#: Template/Locales/view.ctp:38;56
+#: Template/Roles/view.ctp:38;56
+#: Template/Users/view.ctp:56
+msgid "Modified"
+msgstr "Modificado"
+
+#: Template/Locales/view.ctp:43
+#: Template/Roles/view.ctp:43
+msgid "Related Users"
+msgstr "Relação com Usuários"
+
+#: Template/Locales/view.ctp:48
+#: Template/Roles/view.ctp:48
+#: Template/Users/view.ctp:24
+msgid "Username"
+msgstr "Usuário"
+
+#: Template/Locales/view.ctp:49
+#: Template/Roles/view.ctp:49
+#: Template/Users/view.ctp:28
+msgid "Password"
+msgstr "Senha"
+
+#: Template/Locales/view.ctp:50
+#: Template/Roles/view.ctp:50
+#: Template/Users/view.ctp:32
+msgid "Email"
+msgstr ""
+
+#: Template/Locales/view.ctp:51
+#: Template/Roles/view.ctp:51
+#: Template/Users/view.ctp:36
+msgid "Phone"
+msgstr "Fone"
+
+#: Template/Locales/view.ctp:52
+#: Template/Roles/view.ctp:52
+msgid "Locale Id"
+msgstr "# Idioma"
+
+#: Template/Locales/view.ctp:53
+#: Template/Roles/view.ctp:53
+msgid "Role Id"
+msgstr "# Regra"
+
+#: Template/Locales/view.ctp:54
+#: Template/Roles/view.ctp:54
+#: Template/Users/view.ctp:60
+msgid "Active"
+msgstr "Ativo"
+
+#: Template/Roles/add.ctp:10
+#: Template/Roles/edit.ctp:16
+#: Template/Roles/view.ctp:12
+#: Template/Users/add.ctp:13
+#: Template/Users/edit.ctp:19
+#: Template/Users/index.ctp:13
+#: Template/Users/view.ctp:16
+msgid "List Roles"
+msgstr "Listar Regras"
+
+#: Template/Roles/add.ctp:18
+msgid "Add Role"
+msgstr "Adiconar Regras"
+
+#: Template/Roles/edit.ctp:24
+#: Template/Roles/view.ctp:10
+msgid "Edit Role"
+msgstr "Editar Regras"
+
+#: Template/Roles/index.ctp:10
+#: Template/Roles/view.ctp:13
+#: Template/Users/add.ctp:14
+#: Template/Users/edit.ctp:20
+#: Template/Users/index.ctp:14
+#: Template/Users/view.ctp:17
+msgid "New Role"
+msgstr "Nova Regra"
+
+#: Template/Roles/index.ctp:16
+msgid "Roles"
+msgstr "Regras"
+
+#: Template/Roles/view.ctp:11
+msgid "Delete Role"
+msgstr "Excluír Regra"
+
+#: Template/Users/add.ctp:20
+msgid "Add User"
+msgstr "Adicionar Usuário"
+
+#: Template/Users/edit.ctp:26
+#: Template/Users/view.ctp:10
+msgid "Edit User"
+msgstr "Editar Usuário"
+
+#: Template/Users/index.ctp:18
+msgid "Users"
+msgstr "Usuários"
+
+#: Template/Users/login.ctp:3
+msgid "Sign in to Authenticator"
+msgstr "Autenticação ao sistema"
+
+#: Template/Users/login.ctp:7
+msgid "Login"
+msgstr "Logar"
+
+#: Template/Users/view.ctp:11
+msgid "Delete User"
+msgstr "Excluir Usuário"
+
+#: Template/Users/view.ctp:40
+msgid "Locale"
+msgstr "Idioma"
+
+#: Template/Users/view.ctp:44
+msgid "Role"
+msgstr "Regra"
+
+#: Template/Users/view.ctp:61
+msgid "Yes"
+msgstr "Sim"
+
+#: Template/Users/view.ctp:61
+msgid "No"
+msgstr "Não"
+
+msgid "Logout"
+msgstr "Sair"
+
