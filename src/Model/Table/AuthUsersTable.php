@@ -7,22 +7,22 @@ use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * Users Model
+ * AuthUsers Model
  *
- * @property \Authenticator\Model\Table\LocalesTable|\Cake\ORM\Association\BelongsTo $Locales
- * @property \Authenticator\Model\Table\RolesTable|\Cake\ORM\Association\BelongsTo $Roles
+ * @property \Authenticator\Model\Table\AuthLocalesTable|\Cake\ORM\Association\BelongsTo $AuthLocales
+ * @property \Authenticator\Model\Table\AuthRolesTable|\Cake\ORM\Association\BelongsTo $AuthRoles
  *
- * @method \Authenticator\Model\Entity\User get($primaryKey, $options = [])
- * @method \Authenticator\Model\Entity\User newEntity($data = null, array $options = [])
- * @method \Authenticator\Model\Entity\User[] newEntities(array $data, array $options = [])
- * @method \Authenticator\Model\Entity\User|bool save(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \Authenticator\Model\Entity\User patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
- * @method \Authenticator\Model\Entity\User[] patchEntities($entities, array $data, array $options = [])
- * @method \Authenticator\Model\Entity\User findOrCreate($search, callable $callback = null, $options = [])
+ * @method \Authenticator\Model\Entity\AuthUser get($primaryKey, $options = [])
+ * @method \Authenticator\Model\Entity\AuthUser newEntity($data = null, array $options = [])
+ * @method \Authenticator\Model\Entity\AuthUser[] newEntities(array $data, array $options = [])
+ * @method \Authenticator\Model\Entity\AuthUser|bool save(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \Authenticator\Model\Entity\AuthUser patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
+ * @method \Authenticator\Model\Entity\AuthUser[] patchEntities($entities, array $data, array $options = [])
+ * @method \Authenticator\Model\Entity\AuthUser findOrCreate($search, callable $callback = null, $options = [])
  *
  * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
-class UsersTable extends Table
+class AuthUsersTable extends Table
 {
 
     /**
@@ -35,19 +35,21 @@ class UsersTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('users');
-        $this->setDisplayField('id');
+        $this->setTable('auth_users');
+        $this->setDisplayField('name');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('Locales', [
+        $this->belongsTo('AuthLocales', [
             'foreignKey' => 'locale_id',
-            'joinType' => 'INNER'
+            'joinType' => 'INNER',
+            'className' => 'Authenticator.AuthLocales'
         ]);
-        $this->belongsTo('Roles', [
+        $this->belongsTo('AuthRoles', [
             'foreignKey' => 'role_id',
-            'joinType' => 'INNER'
+            'joinType' => 'INNER',
+            'className' => 'Authenticator.AuthRoles'
         ]);
     }
 
@@ -76,6 +78,12 @@ class UsersTable extends Table
             ->notEmpty('password');
 
         $validator
+            ->scalar('name')
+            ->maxLength('name', 255)
+            ->requirePresence('name', 'create')
+            ->notEmpty('name');
+
+        $validator
             ->email('email')
             ->requirePresence('email', 'create')
             ->notEmpty('email');
@@ -83,8 +91,7 @@ class UsersTable extends Table
         $validator
             ->scalar('phone')
             ->maxLength('phone', 255)
-            ->requirePresence('phone', 'create')
-            ->notEmpty('phone');
+            ->allowEmpty('phone');
 
         $validator
             ->boolean('active')
@@ -105,8 +112,8 @@ class UsersTable extends Table
     {
         $rules->add($rules->isUnique(['username']));
         $rules->add($rules->isUnique(['email']));
-        $rules->add($rules->existsIn(['locale_id'], 'Locales'));
-        $rules->add($rules->existsIn(['role_id'], 'Roles'));
+        $rules->add($rules->existsIn(['locale_id'], 'AuthLocales'));
+        $rules->add($rules->existsIn(['role_id'], 'AuthRoles'));
 
         return $rules;
     }

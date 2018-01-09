@@ -22,14 +22,16 @@ class AppController extends BaseController
             ],
             'authenticate' => [
                 'Form' => [
-                    'userModel' => 'Authenticator.Users'
+                    'userModel' => 'Authenticator.AuthUsers'
                 ]
             ],
             'loginRedirect' => [
+                'plugin' => 'Authenticator',
                 'controller' => 'Users',
                 'action' => 'index'
             ],
             'logoutRedirect' => [
+                'plugin' => 'Authenticator',
                 'controller' => 'Users',
                 'action' => 'login'
             ],
@@ -41,15 +43,15 @@ class AppController extends BaseController
         $this->set('user', $this->Auth->user());
     }
 
+    public function beforeRender(Event $event)
+    {
+        date_default_timezone_set('America/Sao_Paulo');
+    }
+
     //Nega o acesso a todos os controllers
     public function isAuthorized($user)
     {
         // By default deny access.
         return false;
-    }
-
-    public function beforeRender(Event $event)
-    {
-        date_default_timezone_set('America/Sao_Paulo');
     }
 }

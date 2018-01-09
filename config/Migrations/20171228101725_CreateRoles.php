@@ -13,7 +13,7 @@ class CreateRoles extends AbstractMigration
      */
     public function change()
     {
-        $table = $this->table('roles');
+        $table = $this->table('auth_roles');
         $table->addColumn('title', 'string', [
             'limit' => 100
         ]);

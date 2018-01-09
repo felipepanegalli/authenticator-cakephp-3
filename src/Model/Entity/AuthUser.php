@@ -2,14 +2,14 @@
 namespace Authenticator\Model\Entity;
 
 use Cake\ORM\Entity;
-use Cake\Auth\DefaultPasswordHasher;
 
 /**
- * User Entity
+ * AuthUser Entity
  *
  * @property int $id
  * @property string $username
  * @property string $password
+ * @property string $name
  * @property string $email
  * @property string $phone
  * @property int $locale_id
@@ -18,10 +18,10 @@ use Cake\Auth\DefaultPasswordHasher;
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
- * @property \Authenticator\Model\Entity\Locale $locale
- * @property \Authenticator\Model\Entity\Role $role
+ * @property \Authenticator\Model\Entity\AuthLocale $auth_locale
+ * @property \Authenticator\Model\Entity\AuthRole $auth_role
  */
-class User extends Entity
+class AuthUser extends Entity
 {
 
     /**
@@ -36,6 +36,7 @@ class User extends Entity
     protected $_accessible = [
         'username' => true,
         'password' => true,
+        'name' => true,
         'email' => true,
         'phone' => true,
         'locale_id' => true,
@@ -43,8 +44,8 @@ class User extends Entity
         'active' => true,
         'created' => true,
         'modified' => true,
-        'locale' => true,
-        'role' => true
+        'auth_locale' => true,
+        'auth_role' => true
     ];
 
     /**
@@ -55,11 +56,4 @@ class User extends Entity
     protected $_hidden = [
         'password'
     ];
-
-    protected function _setPassword($password)
-    {
-        if (strlen($password) > 0) {
-            return (new DefaultPasswordHasher)->hash($password);
-        }
-    }
 }

@@ -23,8 +23,9 @@ class UsersSeed extends AbstractSeed
             [
                 'username' => 'admin',
                 'password' => (new DefaultPasswordHasher)->hash('admin'),
-                'email' => 'admin@admin.com',
-                'phone' => '12112341234',
+                'name' => 'Administrator',
+                'email' => 'admin@yourdomain.com',
+                'phone' => '1(123)567-8900',
                 'locale_id' => '1',
                 'role_id' => '1',
                 'active' => true
@@ -32,15 +33,16 @@ class UsersSeed extends AbstractSeed
             [
                 'username' => 'user',
                 'password' => (new DefaultPasswordHasher)->hash('user'),
-                'email' => 'user@user.com',
-                'phone' => '12112341234',
+                'name' => 'User',
+                'email' => 'user@yourdomain.com',
+                'phone' => '1(123)567-8900',
                 'locale_id' => '1',
                 'role_id' => '2',
                 'active' => true
             ],
         ];
 
-        $table = $this->table('users');
+        $table = $this->table('auth_users');
         $table->insert($data)->save();
     }
 }

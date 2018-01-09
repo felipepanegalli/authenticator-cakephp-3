@@ -12,7 +12,7 @@ class CreateLocales extends AbstractMigration
      */
     public function change()
     {
-        $table = $this->table('locales');
+        $table = $this->table('auth_locales');
         $table->addColumn('title', 'string', [
             'limit' => 10
         ]);

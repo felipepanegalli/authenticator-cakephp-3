@@ -21,19 +21,19 @@ class LocalesSeed extends AbstractSeed
         $data = [
             [
                 'title' => 'pt_BR',
-                'description' => 'Português Brazilian Language'
+                'description' => 'Portuguese (Brazilian)'
             ],
             [
                 'title' => 'en_US',
-                'description' => 'English Language'
+                'description' => 'English'
             ],
             [
                 'title' => 'es',
-                'description' => 'Spanish Language'
+                'description' => 'Spanish'
             ],
         ];
 
-        $table = $this->table('locales');
+        $table = $this->table('auth_locales');
         $table->insert($data)->save();
     }
 }

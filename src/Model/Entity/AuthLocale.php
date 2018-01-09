@@ -4,17 +4,15 @@ namespace Authenticator\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Role Entity
+ * AuthLocale Entity
  *
  * @property int $id
  * @property string $title
  * @property string $description
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
- *
- * @property \Authenticator\Model\Entity\User[] $users
  */
-class Role extends Entity
+class AuthLocale extends Entity
 {
 
     /**
@@ -30,7 +28,6 @@ class Role extends Entity
         'title' => true,
         'description' => true,
         'created' => true,
-        'modified' => true,
-        'users' => true
+        'modified' => true
     ];
 }

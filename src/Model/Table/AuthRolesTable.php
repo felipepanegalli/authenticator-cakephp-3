@@ -7,21 +7,19 @@ use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * Locales Model
+ * AuthRoles Model
  *
- * @property \Authenticator\Model\Table\UsersTable|\Cake\ORM\Association\HasMany $Users
- *
- * @method \Authenticator\Model\Entity\Locale get($primaryKey, $options = [])
- * @method \Authenticator\Model\Entity\Locale newEntity($data = null, array $options = [])
- * @method \Authenticator\Model\Entity\Locale[] newEntities(array $data, array $options = [])
- * @method \Authenticator\Model\Entity\Locale|bool save(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \Authenticator\Model\Entity\Locale patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
- * @method \Authenticator\Model\Entity\Locale[] patchEntities($entities, array $data, array $options = [])
- * @method \Authenticator\Model\Entity\Locale findOrCreate($search, callable $callback = null, $options = [])
+ * @method \Authenticator\Model\Entity\AuthRole get($primaryKey, $options = [])
+ * @method \Authenticator\Model\Entity\AuthRole newEntity($data = null, array $options = [])
+ * @method \Authenticator\Model\Entity\AuthRole[] newEntities(array $data, array $options = [])
+ * @method \Authenticator\Model\Entity\AuthRole|bool save(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \Authenticator\Model\Entity\AuthRole patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
+ * @method \Authenticator\Model\Entity\AuthRole[] patchEntities($entities, array $data, array $options = [])
+ * @method \Authenticator\Model\Entity\AuthRole findOrCreate($search, callable $callback = null, $options = [])
  *
  * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
-class LocalesTable extends Table
+class AuthRolesTable extends Table
 {
 
     /**
@@ -34,15 +32,11 @@ class LocalesTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('locales');
+        $this->setTable('auth_roles');
         $this->setDisplayField('title');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
-
-        $this->hasMany('Users', [
-            'foreignKey' => 'locale_id'
-        ]);
     }
 
     /**
@@ -59,7 +53,7 @@ class LocalesTable extends Table
 
         $validator
             ->scalar('title')
-            ->maxLength('title', 10)
+            ->maxLength('title', 100)
             ->requirePresence('title', 'create')
             ->notEmpty('title');
 

@@ -29,7 +29,7 @@ class RolesSeed extends AbstractSeed
             ],
         ];
 
-        $table = $this->table('roles');
+        $table = $this->table('auth_roles');
         $table->insert($data)->save();
     }
 }

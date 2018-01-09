@@ -18,9 +18,9 @@ class RolesController extends AppController
         //Verifica qual é a action
         $action = $this->request->getParam('action');
         //Carrega o Model de Regras
-        $this->loadModel('Roles');
+        $this->loadModel('AuthRoles');
         //Carrega a ragra baseado na role_id do usuário
-        $role = $this->Roles->find()->where(['id' => $this->Auth->user('role_id')])->first();
+        $role = $this->AuthRoles->find()->where(['id' => $this->Auth->user('role_id')])->first();
         //Verifica se o usuário é administrador e está nas actions do array, permite o acesso das actions inclusas
         if (strtolower($role['title']) == 'administrator' and in_array($action, ['index', 'view', 'add', 'edit', 'delete'])) {
             return true;

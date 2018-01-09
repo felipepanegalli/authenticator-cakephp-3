@@ -44,6 +44,7 @@
                 <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Username') ?></th>
                 <th scope="col"><?= __('Password') ?></th>
+                <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('Email') ?></th>
                 <th scope="col"><?= __('Phone') ?></th>
                 <th scope="col"><?= __('Locale Id') ?></th>
@@ -58,6 +59,7 @@
                 <td><?= h($users->id) ?></td>
                 <td><?= h($users->username) ?></td>
                 <td><?= h($users->password) ?></td>
+                <td><?= h($users->name) ?></td>
                 <td><?= h($users->email) ?></td>
                 <td><?= h($users->phone) ?></td>
                 <td><?= h($users->locale_id) ?></td>

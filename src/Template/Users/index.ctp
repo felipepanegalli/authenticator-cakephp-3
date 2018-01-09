@@ -19,6 +19,7 @@
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('username') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('password') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('email') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('phone') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('locale_id') ?></th>
@@ -35,6 +36,7 @@
                 <td><?= $this->Number->format($user->id) ?></td>
                 <td><?= h($user->username) ?></td>
                 <td><?= h($user->password) ?></td>
+                <td><?= h($user->name) ?></td>
                 <td><?= h($user->email) ?></td>
                 <td><?= h($user->phone) ?></td>
                 <td><?= $user->has('locale') ? $this->Html->link($user->locale->title, ['controller' => 'Locales', 'action' => 'view', $user->locale->id]) : '' ?></td>
