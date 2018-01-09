@@ -26,49 +26,7 @@ bin/cake migrations seed --plugin=Authenticator
 ```
 Quando é gerado o Seed do plugins, são adicionados dois registros de usuário ao banco, o admin e user, para ambos, a senha é o mesmo que o username ou seja, o admin é admin e o user é user.
 
-Para ativar a autenticação no `src/Controller/AppController.php` basta adicionar o componente `Auth` e configurar conforme abaixo:
-```
-$this->loadComponent('Authenticator.Locales');
-        $this->loadComponent('Cookie');
-
-        $this->loadComponent('Auth', [
-            'authorize' => 'Controller',
-            'loginAction' => [
-                'plugin' => 'Authenticator',
-                'controller' => 'Users',
-                'action' => 'login'
-            ],
-            'authenticate' => [
-                'Form' => [
-                    'userModel' => 'Authenticator.Users'
-                ]
-            ],
-            'loginRedirect' => [
-                'controller' => 'Users',
-                'action' => 'index'
-            ],
-            'logoutRedirect' => [
-                'controller' => 'Users',
-                'action' => 'login'
-            ],
-            // If unauthorized, return them to page they were just on
-            'unauthorizedRedirect' => $this->referer()
-        ]);
-
-        $this->Auth->allow(['display', 'login', 'logout']);
-        $this->set('user', $this->Auth->user());
-```
-
-Ainda no `src/Controller/AppController.php` deve-se negar o acesso a todas as páginas, para isso, basta adicionar a seguinte função:
-```
-//Nega o acesso a todos os controllers
-public function isAuthorized($user)
-{
-   // By default deny access.
-   return false;
-}
-```
-Em todos os controllers que deseja fazer o controle de acesso, basta adicionar a seguinte função:
+Após ativado o plugins, nenhum controller irá permitir o acesso, para isso basta adicionar a seguinte função nos controller que deseja controllar o acesso:
 ```
 public function isAuthorized($user)
 {
@@ -95,6 +53,9 @@ public function isAuthorized($user)
    //Aqui vai alguma validação caso necessário...
 }
 ```
+
+Se for necessário fazer alguma alteração de model para acesso ao usuário, verifica a pasta raiz do plugin em `/vendor/felipepanegalli/authenticator-cakephp-3/src/Controller/AppController.php`
+
 Caso queira adicionar uma rota de acesso, basta adicionar em ``config/routes.php`` antes do fallback a seguinte linha:
 ```
 $routes->connect('/login', ['plugin' => 'authenticator','controller' => 'users', 'action' => 'login']);
