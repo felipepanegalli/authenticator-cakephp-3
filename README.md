@@ -33,7 +33,7 @@ public function isAuthorized($user)
    //Verifica qual é a action
    $action = $this->request->getParam('action');
    //Carrega o Model de Regras
-   $this->loadModel('Authenticator.Roles');
+   $this->loadModel('Authenticator.AuthRoles');
    //Carrega a ragra baseado na role_id do usuário
    $role = $this->Roles->find()->where(['id' => $this->Auth->user('role_id')])->first();
 
@@ -56,9 +56,6 @@ public function isAuthorized($user)
 
 Se for necessário fazer alguma alteração de model para acesso ao usuário, verifica a pasta raiz do plugin em `/vendor/felipepanegalli/authenticator-cakephp-3/src/Controller/AppController.php`
 
-Caso queira adicionar uma rota de acesso, basta adicionar em ``config/routes.php`` antes do fallback a seguinte linha:
-```
-$routes->connect('/login', ['plugin' => 'authenticator','controller' => 'users', 'action' => 'login']);
-```
-Ai só acessar site:port/login ou localhost:8765/login 
+Para acessar o login basta entrar no endereço `site.com.br/login` ou no localhost `localhost:8765/login` 
+
 Qualquer dúvida pode ser enviado na aba de contato no site acima.
