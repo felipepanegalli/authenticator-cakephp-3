@@ -1,18 +1,12 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var \App\Model\Entity\Role[]|\Cake\Collection\CollectionInterface $roles
+ * @var \Cake\Datasource\EntityInterface[]|\Cake\Collection\CollectionInterface $authRoles
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'users', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('List Roles'), ['controller' => 'roles', 'action' => 'index']) ?> </li>
-    </ul>
-</nav>
-<div class="roles index large-9 medium-8 columns content">
-    <h3><?= __('Roles') ?></h3>
+
+<div class="authRoles index large-12 medium-12 columns content">
+    <h3><?= __('Auth Roles') ?></h3>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
@@ -25,17 +19,17 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($roles as $role): ?>
+            <?php foreach ($authRoles as $authRole): ?>
             <tr>
-                <td><?= $this->Number->format($role->id) ?></td>
-                <td><?= h($role->title) ?></td>
-                <td><?= h($role->description) ?></td>
-                <td><?= h($role->created) ?></td>
-                <td><?= h($role->modified) ?></td>
+                <td><?= $this->Number->format($authRole->id) ?></td>
+                <td><?= h($authRole->title) ?></td>
+                <td><?= h($authRole->description) ?></td>
+                <td><?= h($authRole->created) ?></td>
+                <td><?= h($authRole->modified) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $role->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $role->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $role->id], ['confirm' => __('Are you sure you want to delete # {0}?', $role->id)]) ?>
+                    <?= $this->Html->link(__('View'), ['action' => 'view', $authRole->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $authRole->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $authRole->id], ['confirm' => __('Are you sure you want to delete # {0}?', $authRole->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

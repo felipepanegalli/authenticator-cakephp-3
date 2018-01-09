@@ -29,15 +29,22 @@ $cakeDescription = 'Plugin de Autenticação - Desenvolvido por Felipe Panegalli
         </ul>
         <div class="top-bar-section">
             <ul class="right">
-                <li><a href="<?= $this->Url->build(['controller' => 'users', 'action' => 'logout']) ?>"><?= __('Logout') ?></a></li>
+                <li><a href="<?= $this->Url->build(['controller' => 'AuthUsers', 'action' => 'logout']) ?>"><?= __('Logout') ?></a></li>
             </ul>
             <ul class="menu">
                 <li><a href="#"><?= __('IDIOMAS >>') ?></a></li>
-                <li><a href="<?= $this->Url->build(['controller' => 'locales', 'action' => 'changeLanguage', 'pt_BR']) ?>">BR</a></li>
-                <li><a href="<?= $this->Url->build(['controller' => 'locales', 'action' => 'changeLanguage', 'en_US']) ?>">EN</a></li>
-                <li><a href="<?= $this->Url->build(['controller' => 'locales', 'action' => 'changeLanguage', 'es']) ?>">ES</a></li>
+                <li><a href="<?= $this->Url->build(['controller' => 'AuthLocales', 'action' => 'changeLanguage', 'pt_BR']) ?>">BR</a></li>
+                <li><a href="<?= $this->Url->build(['controller' => 'AuthLocales', 'action' => 'changeLanguage', 'en_US']) ?>">EN</a></li>
+                <li><a href="<?= $this->Url->build(['controller' => 'AuthLocales', 'action' => 'changeLanguage', 'es']) ?>">ES</a></li>
             </ul>
         </div>
+    </nav>
+    <nav class="large-3 medium-4 columns" id="actions-sidebar">
+        <ul class="side-nav">
+            <li class="heading"><?= __('Actions') ?></li>
+            <li><?= $this->Html->link(__('List Users'), ['controller' => 'AuthUsers', 'action' => 'index']) ?> </li>
+            <li><?= $this->Html->link(__('List Roles'), ['controller' => 'AuthRoles', 'action' => 'index']) ?> </li>
+        </ul>
     </nav>
     <?= $this->Flash->render() ?>
     <div class="container clearfix">
