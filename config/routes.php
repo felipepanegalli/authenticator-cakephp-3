@@ -7,7 +7,7 @@ Router::plugin(
     'Authenticator',
     ['path' => '/authenticator'],
     function (RouteBuilder $routes) {
-        $routes->get('/login', ['controller' => 'users', 'action' => 'login']);
+        $routes->connect('/login', ['controller' => 'users', 'action' => 'login']);
         $routes->fallbacks(DashedRoute::class);
     }
 );

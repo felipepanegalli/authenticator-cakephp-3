@@ -10,7 +10,7 @@ use Authenticator\Controller\AppController;
  *
  * @method \Authenticator\Model\Entity\Locale[] paginate($object = null, array $settings = [])
  */
-class LocalesController extends AppController
+class AuthLocalesController extends AppController
 {
     public function isAuthorized($user)
     {

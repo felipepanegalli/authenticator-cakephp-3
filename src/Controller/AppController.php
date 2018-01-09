@@ -17,7 +17,7 @@ class AppController extends BaseController
             'authorize' => 'Controller',
             'loginAction' => [
                 'plugin' => 'Authenticator',
-                'controller' => 'Users',
+                'controller' => 'AuthUsers',
                 'action' => 'login'
             ],
             'authenticate' => [
@@ -27,12 +27,12 @@ class AppController extends BaseController
             ],
             'loginRedirect' => [
                 'plugin' => 'Authenticator',
-                'controller' => 'Users',
+                'controller' => 'AuthUsers',
                 'action' => 'index'
             ],
             'logoutRedirect' => [
                 'plugin' => 'Authenticator',
-                'controller' => 'Users',
+                'controller' => 'AuthUsers',
                 'action' => 'login'
             ],
             // If unauthorized, return them to page they were just on

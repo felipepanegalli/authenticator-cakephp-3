@@ -1,18 +1,16 @@
 <?php
-
 namespace Authenticator\Controller;
 
 use Authenticator\Controller\AppController;
-use Cake\Event\Event;
 
 /**
- * Users Controller
+ * AuthRoles Controller
  *
- * @property \Authenticator\Model\Table\UsersTable $Users
+ * @property \Authenticator\Model\Table\AuthRolesTable $AuthRoles
  *
- * @method \Authenticator\Model\Entity\User[] paginate($object = null, array $settings = [])
+ * @method \Authenticator\Model\Entity\AuthRole[] paginate($object = null, array $settings = [])
  */
-class UsersController extends AppController
+class AuthRolesController extends AppController
 {
 
     public function isAuthorized($user)
@@ -39,23 +37,6 @@ class UsersController extends AppController
         //Aqui vai alguma validação caso necessário...
     }
 
-    public function login(){
-        if($this->request->is('post')){
-            $user = $this->Auth->identify();
-            if ($user){
-                $this->Auth->setUser($user);
-                return $this->redirect($this->Auth->redirectUrl());
-            }
-            $this->Flash->error(__('Username or password is invalid, try again!'));
-        }
-        $this->viewBuilder()->setLayout('login');
-    }
-
-    public function logout(){
-        $this->Flash->success(__('You are now logged out.'));
-        return $this->redirect($this->Auth->logout());
-    }
-
     /**
      * Index method
      *
@@ -63,28 +44,25 @@ class UsersController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['Locales', 'Roles']
-        ];
-        $users = $this->paginate($this->Users);
+        $authRoles = $this->paginate($this->AuthRoles);
 
-        $this->set(compact('users'));
+        $this->set(compact('authRoles'));
     }
 
     /**
      * View method
      *
-     * @param string|null $id User id.
+     * @param string|null $id Auth Role id.
      * @return \Cake\Http\Response|void
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function view($id = null)
     {
-        $user = $this->Users->get($id, [
-            'contain' => ['Locales', 'Roles']
+        $authRole = $this->AuthRoles->get($id, [
+            'contain' => []
         ]);
 
-        $this->set('user', $user);
+        $this->set('authRole', $authRole);
     }
 
     /**
@@ -94,62 +72,58 @@ class UsersController extends AppController
      */
     public function add()
     {
-        $user = $this->Users->newEntity();
+        $authRole = $this->AuthRoles->newEntity();
         if ($this->request->is('post')) {
-            $user = $this->Users->patchEntity($user, $this->request->getData());
-            if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
+            $authRole = $this->AuthRoles->patchEntity($authRole, $this->request->getData());
+            if ($this->AuthRoles->save($authRole)) {
+                $this->Flash->success(__('The auth role has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The user could not be saved. Please, try again.'));
+            $this->Flash->error(__('The auth role could not be saved. Please, try again.'));
         }
-        $locales = $this->Users->Locales->find('list', ['limit' => 200]);
-        $roles = $this->Users->Roles->find('list', ['limit' => 200]);
-        $this->set(compact('user', 'locales', 'roles'));
+        $this->set(compact('authRole'));
     }
 
     /**
      * Edit method
      *
-     * @param string|null $id User id.
+     * @param string|null $id Auth Role id.
      * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
     public function edit($id = null)
     {
-        $user = $this->Users->get($id, [
+        $authRole = $this->AuthRoles->get($id, [
             'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $user = $this->Users->patchEntity($user, $this->request->getData());
-            if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
+            $authRole = $this->AuthRoles->patchEntity($authRole, $this->request->getData());
+            if ($this->AuthRoles->save($authRole)) {
+                $this->Flash->success(__('The auth role has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The user could not be saved. Please, try again.'));
+            $this->Flash->error(__('The auth role could not be saved. Please, try again.'));
         }
-        $locales = $this->Users->Locales->find('list', ['limit' => 200]);
-        $roles = $this->Users->Roles->find('list', ['limit' => 200]);
-        $this->set(compact('user', 'locales', 'roles'));
+        $this->set(compact('authRole'));
     }
 
     /**
      * Delete method
      *
-     * @param string|null $id User id.
+     * @param string|null $id Auth Role id.
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
-        $user = $this->Users->get($id);
-        if ($this->Users->delete($user)) {
-            $this->Flash->success(__('The user has been deleted.'));
+        $authRole = $this->AuthRoles->get($id);
+        if ($this->AuthRoles->delete($authRole)) {
+            $this->Flash->success(__('The auth role has been deleted.'));
         } else {
-            $this->Flash->error(__('The user could not be deleted. Please, try again.'));
+            $this->Flash->error(__('The auth role could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);
